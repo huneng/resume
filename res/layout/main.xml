@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp" 
+        android:src="@drawable/resume_icon"
+        android:contentDescription="@string/description"/>
+
+    <Button
+        android:id="@+id/goto_paint_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_style_green"
+        android:paddingLeft="130dp"
+        android:paddingRight="130dp"
+        android:text="@string/edit"
+        android:textSize="18sp" 
+        android:onClick="editTextResume"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:text="@string/edit_text_resume"
+        android:textColor="#444"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/goto_edit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_style_white"
+        android:paddingLeft="130dp"
+        android:paddingRight="130dp"
+        android:text="@string/paint"
+        android:textSize="18sp" 
+        android:onClick="paintPicResume"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:text="@string/creator_image_resume"
+        android:textColor="#444"
+        android:textSize="14sp" />
+
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/paint_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_bar"
+        android:gravity="center" >
+
+        <RadioButton
+            android:id="@+id/paint_mode1"
+            style="@style/main_footbar_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:drawableTop="@drawable/no1"
+            android:onClick="gotoView" />
+
+        <RadioButton
+            android:id="@+id/paint_mode2"
+            style="@style/main_footbar_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/paint_mode1"
+            android:drawableTop="@drawable/no2"
+            android:onClick="gotoView" />
+
+        <RadioButton
+            android:id="@+id/paint_mode3"
+            style="@style/main_footbar_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/paint_mode2"
+            android:drawableTop="@drawable/no3"
+            android:onClick="gotoView" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/paint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/paint_bottom"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</RelativeLayout>

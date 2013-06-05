@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/title_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <ImageButton
+                    android:id="@+id/photo_view"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/people"
+                    android:contentDescription="@string/description"
+                    android:padding="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/photo_view"
+                    android:orientation="vertical" >
+
+                    <EditText
+                        android:id="@+id/name_edit"
+                        style="@style/InputEdit"
+                        android:hint="@string/name"
+                        android:inputType="textPersonName" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:id="@+id/age_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@android:drawable/btn_default_small"
+                            android:gravity="center"
+                            android:textSize="14sp" />
+
+                        <Button
+                            android:id="@+id/sex_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_weight="3"
+                            android:background="@android:drawable/btn_default_small"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="15dp"
+                android:background="#aaaaaa" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp" >
+
+                <Button
+                    android:id="@+id/get_tel"
+                    android:layout_width="45dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/phone" />
+
+                <EditText
+                    android:id="@+id/phone_edit"
+                    style="@style/InputEdit"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="60dp"
+                    android:hint="@string/phone"
+                    android:inputType="phone" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/address_edit"
+                style="@style/InputEdit"
+                android:hint="@string/h_addr"
+                android:inputType="textPostalAddress" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="15dp"
+                android:background="#aaaaaa" />
+
+            <EditText
+                android:id="@+id/job1_edit"
+                style="@style/InputEdit"
+                android:hint="@string/job"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/salary1_edit"
+                style="@style/InputEdit"
+                android:hint="@string/holiday"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/holiday1_edit"
+                style="@style/InputEdit"
+                android:hint="@string/salary"
+                android:inputType="number" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="15dp"
+                android:background="#aaaaaa" />
+
+            <EditText
+                android:id="@+id/remark_edit"
+                style="@style/InputEdit"
+                android:hint="@string/remark"
+                android:inputType="text" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
