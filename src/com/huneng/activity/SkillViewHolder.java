@@ -12,12 +12,11 @@ import android.widget.EditText;
 public class SkillViewHolder {
 	private ResumeEditor parent;
 	public List<SkillData> skills;
-	SkillData curSkill;
-	EditText snameEd, sstartEd, sscoresEd;
-	Button frontBtn, nextBtn;
-	Button sAddBtn, sDeleteBtn;
-	int curIndex;
-	int starttime, endtime;
+	private SkillData curSkill;
+	private EditText snameEd, sstartEd, sscoresEd;
+	private Button frontBtn, nextBtn;
+	private Button sAddBtn, sDeleteBtn;
+	private int curIndex;
 
 	public SkillViewHolder(View view, ResumeEditor editor) {
 		parent = editor;
@@ -36,7 +35,6 @@ public class SkillViewHolder {
 		sstartEd = (EditText) view.findViewById(R.id.skill_start_edit);
 		sscoresEd = (EditText) view.findViewById(R.id.skill_score_edit);
 
-		starttime = endtime = 0;
 	}
 
 	private OnClickListener cl = new OnClickListener() {
@@ -63,6 +61,7 @@ public class SkillViewHolder {
 		}
 
 	};
+
 	public void saveData() {
 		String str;
 		str = snameEd.getText().toString();
@@ -77,29 +76,7 @@ public class SkillViewHolder {
 		if (str.equals(""))
 			str = "0";
 		curSkill.setScore(str);
-
-		
 		skills.set(curIndex, curSkill);
-		if (starttime == 0) {
-			starttime = curSkill.starttime;
-		} else {
-			if (starttime > curSkill.starttime) {
-				starttime = curSkill.starttime;
-			}
-		}
-		if (endtime == 0) {
-			endtime = curSkill.starttime + curSkill.length-1 ;
-		} else {
-			if (endtime < curSkill.starttime + curSkill.length ) {
-				endtime = curSkill.starttime + curSkill.length-1 ;
-			}
-		}
-		if(parent.resumeDataStorage.basedata.starttime>starttime){
-			parent.resumeDataStorage.basedata.starttime = starttime;
-		}
-		if(parent.resumeDataStorage.basedata.endtime<endtime){
-			parent.resumeDataStorage.basedata.starttime = endtime;
-		}
 	}
 
 	public void initEdit(SkillData curSkill) {
@@ -115,13 +92,15 @@ public class SkillViewHolder {
 			str += curSkill.scores[i] + " ";
 		}
 		sscoresEd.setText(str);
-		
+
 	}
-	public void setCurSkill(SkillData curSkill, int i){
+
+	public void setCurSkill(SkillData curSkill, int i) {
 		this.curIndex = i;
 		this.curSkill = curSkill;
 		initEdit(curSkill);
 	}
+
 	protected void next() {
 		curIndex++;
 		curSkill = skills.get(curIndex);

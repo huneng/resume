@@ -6,16 +6,14 @@ import org.json.JSONObject;
 import com.huneng.data.MyJson;
 import com.huneng.resume.ArcResume;
 import com.huneng.resume.AxisAnalyseResume;
-import com.huneng.resume.WorkAndSkillResume;
+import com.huneng.resume.BaseResume;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
@@ -25,7 +23,7 @@ public class ResumePainter extends Activity {
 	private RadioButton mode1, mode2, mode3;
 	AxisAnalyseResume resume1;
 	ArcResume resume2;
-	WorkAndSkillResume resume3;
+	BaseResume resume3;
 	public MyJson resumeData;
 
 	@SuppressLint("NewApi")
@@ -57,25 +55,18 @@ public class ResumePainter extends Activity {
 	private void initResumeView() {
 
 		paintLayout = (LinearLayout) findViewById(R.id.paint_layout);
+
 		resume1 = AxisAnalyseResume.createAxisAnalyseResume(this, resumeWidth,
 				resumeHeight, resumeData);
+		resume1.init();
 		resume2 = ArcResume.createArcResume(this, resumeWidth, resumeHeight,
 				resumeData);
-		resume3 = WorkAndSkillResume.createWorkAndSkillResume(this,
-				resumeWidth, resumeHeight, resumeData);
-
-		resume1.init();
 		resume2.init();
-		resume3.init();
-
-		resume1.setLayoutParams(new LayoutParams(resumeWidth, resumeHeight));
-		resume2.setLayoutParams(new LayoutParams(resumeWidth, resumeHeight));
-		resume3.setLayoutParams(new LayoutParams(resumeWidth, resumeHeight));
-
+		resume3 = BaseResume.createBaseResume(this, resumeWidth, resumeHeight);
+		resume3.init(resumeData.basedata, resumeData.remarks);
 		paintLayout.addView(resume1);
 		paintLayout.addView(resume2);
-		paintLayout.addView(resume3);
-
+		paintLayout.addView(resume3.view);
 		gotoView(mode1);
 
 	}
@@ -108,7 +99,7 @@ public class ResumePainter extends Activity {
 	private void refreshView(int a, int b, int c) {
 		resume1.setVisibility(a);
 		resume2.setVisibility(b);
-		resume3.setVisibility(c);
+		resume3.view.setVisibility(c);
 	}
 
 	private void refreshTab(int a, int b, int c) {

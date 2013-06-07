@@ -90,4 +90,13 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="base_draw_textview">
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#333</item>
+    </style>
+
 </resources>

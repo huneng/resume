@@ -7,30 +7,30 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.sax.StartElementListener;
+
 public class MyJson {
 	public List<SkillData> skills;
 	public List<WorkData> works;
 	public BaseData basedata;
 	public List<String> remarks;
 	public String picturePath;
-	public int starttime, endtime;
 
 	public MyJson() {
-		 basedata = new BaseData();
-		 skills = new LinkedList<SkillData>();
-		 works = new LinkedList<WorkData>();
-		 remarks = new LinkedList<String>();
-		 picturePath = "";
+		basedata = new BaseData();
+		skills = new LinkedList<SkillData>();
+		works = new LinkedList<WorkData>();
+		remarks = new LinkedList<String>();
+		picturePath = "";
 	}
-	
-	void setRemarks(String str){
-		String []array = str.split(";");
+
+	void setRemarks(String str) {
+		String[] array = str.split(";");
 		remarks.clear();
-		for(int i = 0; i < array.length; i++){
+		for (int i = 0; i < array.length; i++) {
 			remarks.add(array[i]);
 		}
 	}
-
 
 	public String getRemark() {
 		StringBuffer str = new StringBuffer(100);
@@ -94,8 +94,6 @@ public class MyJson {
 		base.put("birth", basedata.birth);
 		base.put("phone", basedata.phone);
 		base.put("address", basedata.address);
-		base.put("starttime", basedata.starttime);
-		base.put("endtime", basedata.endtime);
 		base.put("photo", basedata.photo);
 		JSONObject want = new JSONObject();
 		want.put("job", basedata.job);
@@ -106,22 +104,44 @@ public class MyJson {
 
 		JSONArray s = new JSONArray();
 		int size = skills.size();
+		int a, b;
+		a = skills.get(0).starttime;
+		b = a + skills.get(0).length - 1;
 		for (int i = 0; i < size; i++) {
-			if (skills.get(i).check())
+			if (skills.get(i).check()) {
+				int t1 = skills.get(i).starttime;
+				int t2 = skills.get(i).length - 1;
+				if (a > t1) {
+					a = t1;
+				}
+				if (b < a + t2) {
+					b = t1 + t2;
+				}
 				s.put(skills.get(i).changeToJson());
-			else {
+			} else {
 				skills.remove(i);
 			}
 		}
 		size = works.size();
 		JSONArray w = new JSONArray();
 		for (int i = 0; i < size; i++) {
+			int t1 = works.get(i).begintime / 100;
+			int t2 = works.get(i).endtime / 100;
+			if (a > t1) {
+				a = t1;
+			}
+			if (b < t2) {
+				b = t2;
+			}
 			if (works.get(i).check())
 				w.put(works.get(i).changeToJson());
 			else
 				works.remove(i);
 		}
-
+		basedata.starttime = a;
+		basedata.endtime = b;
+		base.put("starttime", basedata.starttime);
+		base.put("endtime", basedata.endtime);
 		resume.put("skills", s);
 		resume.put("works", w);
 

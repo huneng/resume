@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;

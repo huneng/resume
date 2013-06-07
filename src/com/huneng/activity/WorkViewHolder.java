@@ -18,7 +18,6 @@ public class WorkViewHolder {
 	List<WorkData> works;
 	WorkData curWork;
 	int curIndex;
-	int starttime, endtime;
 
 	public WorkViewHolder(View view, ResumeEditor editor) {
 		parent = editor;
@@ -40,7 +39,6 @@ public class WorkViewHolder {
 		scoreEd = (EditText) view.findViewById(R.id.work_score);
 		companyEd = (EditText) view.findViewById(R.id.company_edit);
 		positionEd = (EditText) view.findViewById(R.id.work_edit);
-		starttime = endtime = 0;
 
 	}
 
@@ -110,22 +108,6 @@ public class WorkViewHolder {
 
 		works.set(curIndex, curWork);
 
-		int t = curWork.begintime / 100;
-		if (starttime == 0) {
-			starttime = t;
-
-		} else {
-			if (starttime > t)
-				starttime = t;
-		}
-		t = curWork.endtime / 100;
-		if (endtime == 0) {
-			endtime = t;
-		} else {
-			if (endtime < t) {
-				endtime = t;
-			}
-		}
 	}
 
 	protected void delWork() {

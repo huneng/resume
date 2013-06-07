@@ -39,19 +39,19 @@ public class ArcResume extends View {
 	List<Arc> arcs;
 	float cx, cy, radius;
 	Paint mPaint;
-	int color[] = { Color.BLUE, Color.CYAN, Color.DKGRAY, Color.GRAY,
-			Color.GREEN, Color.MAGENTA, Color.LTGRAY, Color.MAGENTA, Color.RED,
-			Color.TRANSPARENT, Color.YELLOW };
+	int color[];
 	int colorIndex;
 
 	public void init() {
+		color = MyColor.color1;
 		cx = width / 2;
-		cy = height / 2-10;
+		cy = height / 2 - 10;
 		radius = cx - width / 6;
 		colorIndex = 0;
 		mPaint = new Paint();
 		colorChange();
 		setArcAngle(data.skills);
+		color = MyColor.color1;
 	}
 
 	void colorChange() {
