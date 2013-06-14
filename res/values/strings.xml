@@ -23,11 +23,10 @@
     <string name="job">职务:</string>
     <string name="salary">薪水:</string>
     <string name="holiday">假期:</string>
-    <string name="h_addr">中国浙江杭州</string>
     <string name="scores">每年的分数（eg：9 9 8 7 6）</string>
-    <string name="score">分数（eg：9）</string>
-    <string name="end_time">结束时间</string>
-    <string name="start_time">开始年份</string>
+    <string name="score">评分</string>
+    <string name="end_time">结束年月</string>
+    <string name="start_time">开始年月</string>
     <string name="set">设置</string>
     <string name="cancel">取消</string>
     <string name="dialog_title">年-月-分数</string>
@@ -40,8 +39,7 @@
     <string name="password">密码：</string>
     <string name="log_in">LOG IN</string>
     <string name="save">保存</string>
-    <string name="signup_link">New to Resume? &lt;a href=\"http://127.0.0.1:8080/regisit\">Click here&lt;/a> to sign up</string>
-    <string name="remark">备注</string>
+   <string name="remark">备注</string>
 
     <string-array name="the_interfaces">
         <item>输入界面</item>

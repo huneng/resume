@@ -29,7 +29,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ResumeEditor extends Activity {
@@ -48,6 +48,7 @@ public class ResumeEditor extends Activity {
 	private RadioButton skillSelect;
 	private RadioButton workSelect;
 	private RadioButton operSelect;
+	private TextView title;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class ResumeEditor extends Activity {
 		getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		setContentView(R.layout.main_editor);
+		title = (TextView) findViewById(R.id.title_name);
 		resumeDataStorage = new MyJson();
 		initCenterContent();
 		initTab();
@@ -182,8 +184,9 @@ public class ResumeEditor extends Activity {
 			resumeDataStorage.skills.add(new SkillData());
 		if (resumeDataStorage.works.size() == 0)
 			resumeDataStorage.works.add(new WorkData());
-		holder2.setCurSkill(resumeDataStorage.skills.get(0), 0);
-		holder3.setCurWork(resumeDataStorage.works.get(0), 0);
+		holder2.setSkills(resumeDataStorage.skills);
+		
+		holder3.setWorks(resumeDataStorage.works);
 	}
 
 	public void fileOpen(View v) {
@@ -261,7 +264,7 @@ public class ResumeEditor extends Activity {
 			skillSelect.setBackgroundResource(R.drawable.widget_bar_bg_n);
 			workSelect.setBackgroundResource(R.drawable.widget_bar_bg_n);
 			operSelect.setBackgroundResource(R.drawable.widget_bar_bg_n);
-
+			title.setText("基本信息");
 			break;
 		case R.id.editor_study:
 			if (skillSelect.isSelected())
@@ -273,6 +276,7 @@ public class ResumeEditor extends Activity {
 			skillSelect.setBackgroundResource(R.drawable.widget_bar_bg_p);
 			workSelect.setBackgroundResource(R.drawable.widget_bar_bg_n);
 			operSelect.setBackgroundResource(R.drawable.widget_bar_bg_n);
+			title.setText("技能");
 			break;
 		case R.id.editor_work:
 			if (baseSelect.isSelected())
@@ -283,6 +287,7 @@ public class ResumeEditor extends Activity {
 			skillSelect.setBackgroundResource(R.drawable.widget_bar_bg_n);
 			workSelect.setBackgroundResource(R.drawable.widget_bar_bg_p);
 			operSelect.setBackgroundResource(R.drawable.widget_bar_bg_n);
+			title.setText("工作经历");
 			break;
 		case R.id.editor_operation:
 			if (baseSelect.isSelected())
@@ -293,6 +298,7 @@ public class ResumeEditor extends Activity {
 			skillSelect.setBackgroundResource(R.drawable.widget_bar_bg_n);
 			workSelect.setBackgroundResource(R.drawable.widget_bar_bg_n);
 			operSelect.setBackgroundResource(R.drawable.widget_bar_bg_p);
+			title.setText("其他");
 			break;
 		}
 	}

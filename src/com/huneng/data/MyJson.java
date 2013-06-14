@@ -7,7 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.sax.StartElementListener;
 
 public class MyJson {
 	public List<SkillData> skills;
@@ -110,11 +109,11 @@ public class MyJson {
 		for (int i = 0; i < size; i++) {
 			if (skills.get(i).check()) {
 				int t1 = skills.get(i).starttime;
-				int t2 = skills.get(i).length - 1;
+				int t2 = skills.get(i).length -1;
 				if (a > t1) {
 					a = t1;
 				}
-				if (b < a + t2) {
+				if (b < t1 + t2) {
 					b = t1 + t2;
 				}
 				s.put(skills.get(i).changeToJson());

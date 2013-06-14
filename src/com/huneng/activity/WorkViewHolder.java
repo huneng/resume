@@ -68,7 +68,13 @@ public class WorkViewHolder {
 		}
 
 	};
-
+	public void setWorks(List<WorkData> works){
+		this.works = works;
+		this.curWork = works.get(0);
+		curIndex = 0;
+		initEdit(curWork);
+		
+	}
 	public void initEdit(WorkData curWork) {
 		positionEd.setText(curWork.workname);
 		companyEd.setText(curWork.company);
@@ -126,12 +132,6 @@ public class WorkViewHolder {
 		curIndex = works.size();
 		curWork = new WorkData();
 		works.add(curWork);
-		initEdit(curWork);
-	}
-
-	public void setCurWork(WorkData work, int i) {
-		this.curWork = work;
-		this.curIndex = i;
 		initEdit(curWork);
 	}
 

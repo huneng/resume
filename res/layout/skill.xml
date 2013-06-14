@@ -2,85 +2,69 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="#eeeeee"
+    android:orientation="vertical"
+    android:padding="10dp" >
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/title_bar" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp" >
-
-        <Button
-            android:id="@+id/skill_front"
-            style="@style/PreviousButton"
-            android:layout_alignParentLeft="true" />
-
-        <Button
-            android:id="@+id/skill_next"
-            style="@style/NextButton"
-            android:layout_alignParentRight="true" />
-    </RelativeLayout>
+    <EditText
+        android:id="@+id/skill_edit"
+        style="@style/InputEdit"
+        android:hint="@string/skill_name"
+        android:inputType="text" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:orientation="vertical" >
+        android:orientation="horizontal" >
 
         <EditText
-            android:id="@+id/skill_edit"
+            android:id="@+id/skill_start_edit"
             style="@style/InputEdit"
-            android:hint="@string/skill_name"
-            android:inputType="text" />
+            android:layout_weight="3"
+            android:hint="@string/start_time"
+            android:inputType="number" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <EditText
-                android:id="@+id/skill_start_edit"
-                style="@style/InputEdit"
-                android:layout_weight="4"
-                android:hint="@string/start_time"
-                android:inputType="number" />
-
-            <EditText
-                android:id="@+id/skill_score_edit"
-                style="@style/InputEdit"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:hint="@string/scores"
-                android:inputType="number|text" />
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp" >
-
-            <Button
-                android:id="@+id/skill_new"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dip"
-                android:background="@android:drawable/ic_input_add" />
-
-            <Button
-                android:id="@+id/skill_delete"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dip"
-                android:background="@android:drawable/ic_delete" />
-        </RelativeLayout>
+        <EditText
+            android:id="@+id/skill_score_edit"
+            style="@style/InputEdit"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:hint="@string/scores"
+            android:inputType="number|text" />
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/skill_front"
+            style="@style/PreviousButton"
+            android:layout_marginRight="20dp" />
+
+        <Button
+            android:id="@+id/skill_new"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/skill_front"
+            android:background="@android:drawable/ic_input_add" />
+
+        <Button
+            android:id="@+id/skill_delete"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/skill_new"
+            android:background="@android:drawable/ic_delete" />
+
+        <Button
+            android:id="@+id/skill_next"
+            style="@style/NextButton"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/skill_delete" />
+    </RelativeLayout>
 
 </LinearLayout>

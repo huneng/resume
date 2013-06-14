@@ -20,7 +20,6 @@ public class SkillViewHolder {
 
 	public SkillViewHolder(View view, ResumeEditor editor) {
 		parent = editor;
-		skills = parent.resumeDataStorage.skills;
 		frontBtn = (Button) view.findViewById(R.id.skill_front);
 		nextBtn = (Button) view.findViewById(R.id.skill_next);
 		sAddBtn = (Button) view.findViewById(R.id.skill_new);
@@ -95,9 +94,10 @@ public class SkillViewHolder {
 
 	}
 
-	public void setCurSkill(SkillData curSkill, int i) {
-		this.curIndex = i;
-		this.curSkill = curSkill;
+	public void setSkills(List<SkillData> skills) {
+		this.skills = skills;
+		this.curSkill = skills.get(0);
+		curIndex = 0;
 		initEdit(curSkill);
 	}
 

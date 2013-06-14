@@ -1,80 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-    <LinearLayout
-        android:id="@+id/editor_bottom"
+    <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/bottom_bar"
-        android:gravity="center" 
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-        
+        layout="@layout/title_bar" />
 
-        <RadioButton
-            android:id="@+id/editor_base"
-            style="@style/main_footbar_radio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="gotoView" />
-
-        <ImageView
-            style="@style/main_footbar_cutline"
-            android:layout_marginLeft="1dp"
-            android:contentDescription="@string/description"
-            android:src="@drawable/widget_bar_cut_off" />
-
-        <RadioButton
-            android:id="@+id/editor_study"
-            style="@style/main_footbar_radio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:onClick="gotoView" />
-
-        <ImageView
-            style="@style/main_footbar_cutline"
-            android:layout_marginLeft="1dp"
-            android:contentDescription="@string/description"
-            android:src="@drawable/widget_bar_cut_off" />
-
-        <RadioButton
-            android:id="@+id/editor_work"
-            style="@style/main_footbar_radio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:onClick="gotoView" />
-
-        <ImageView
-            style="@style/main_footbar_cutline"
-            android:layout_marginLeft="1dp"
-            android:contentDescription="@string/description"
-            android:src="@drawable/widget_bar_cut_off" />
-
-        <RadioButton
-            android:id="@+id/editor_operation"
-            style="@style/main_footbar_radio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:onClick="gotoView" />
-    </LinearLayout>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editor_bottom"
-        android:orientation="vertical" >
+        android:layout_height="match_parent" >
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/editor_tabpager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-        </android.support.v4.view.ViewPager>
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/editor_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bottom_bar"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
 
-</RelativeLayout>
+            <RadioButton
+                android:id="@+id/editor_base"
+                style="@style/main_footbar_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gotoView"
+                android:gravity="center"
+                android:drawableTop="@drawable/base_img" />
+
+            <ImageView
+                style="@style/main_footbar_cutline"
+                android:layout_marginLeft="1dp"
+                android:contentDescription="@string/description"
+                android:src="@drawable/widget_bar_cut_off" />
+
+            <RadioButton
+                android:id="@+id/editor_study"
+                style="@style/main_footbar_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:onClick="gotoView" 
+                android:drawableTop="@drawable/skill_img"/>
+
+            <ImageView
+                style="@style/main_footbar_cutline"
+                android:layout_marginLeft="1dp"
+                android:contentDescription="@string/description"
+                android:src="@drawable/widget_bar_cut_off" />
+
+            <RadioButton
+                android:id="@+id/editor_work"
+                style="@style/main_footbar_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:onClick="gotoView"
+                android:drawableTop="@drawable/work_img" />
+
+            <ImageView
+                style="@style/main_footbar_cutline"
+                android:layout_marginLeft="1dp"
+                android:contentDescription="@string/description"
+                android:src="@drawable/widget_bar_cut_off" />
+
+            <RadioButton
+                android:id="@+id/editor_operation"
+                style="@style/main_footbar_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:onClick="gotoView" 
+                android:drawableTop="@drawable/operation_img"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editor_bottom"
+            android:orientation="vertical" >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/editor_tabpager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </android.support.v4.view.ViewPager>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

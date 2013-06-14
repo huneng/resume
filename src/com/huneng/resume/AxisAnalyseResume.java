@@ -92,9 +92,9 @@ public class AxisAnalyseResume extends View {
 						- points.get(j).y, points.get(j + 1).x + axis_pos.x,
 						axis_pos.y - points.get(j + 1).y, paint));
 			}
-			paint.setTextSize(20);
+			paint.setTextSize(10);
 			Text text = new Text();
-			text.x = axis_pos.x + i * 50 + 40;
+			text.x = axis_pos.x + i * 60 + 40;
 			text.y = skill_text_y_pos;
 			text.data = skill.skillname;
 			text.paint = paint;
@@ -110,6 +110,7 @@ public class AxisAnalyseResume extends View {
 		work_rects = new LinkedList<Histogram>();
 		Paint tp = new Paint();
 		tp.setColor(Color.BLACK);
+		tp.setTextSize(10);
 
 		for (int i = 0; i < works.size(); i++) {
 			WorkData work = works.get(i);
